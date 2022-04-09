@@ -19,4 +19,10 @@ class login:
         return False
 
     def treasurerLogin(self, username, password):
-        pass
+        with open('./data/treasurerCredentials.txt') as f:
+            for line in f.readlines():
+                data = line.split(' ')
+                if username == data[0]:
+                    if password == data[1]:
+                        return True
+        return False
