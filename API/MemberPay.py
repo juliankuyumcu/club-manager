@@ -1,9 +1,9 @@
-def MemberPay(numberOfWeek):
-    file = "MemberFile"
+def MemberPay(numberOfWeek, username):
+    fileN = "./data/membersFile"+ username +".txt"
     if numberOfWeek > 4 or numberOfWeek == 0:
         return Exception
-    num_lines = sum(1 for line in open(file))
-    reading_file = open(file, "r")
+    num_lines = sum(1 for line in open(fileN))
+    reading_file = open(fileN, "r")
     n = 0
     new_file_content = ""
     for line in reading_file:
@@ -27,7 +27,7 @@ def MemberPay(numberOfWeek):
         new_file_content += new_line + "\n"
     reading_file.close()
 
-    writing_file = open("MemberFile", "w")
+    writing_file = open(fileN, "w")
     writing_file.write(new_file_content)
     writing_file.close()
     return
